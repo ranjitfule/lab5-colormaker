@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Color Maker - App</title>
+	<style type="text/css">
+		*{padding: 0; margin: 0; box-sizing: border-box;}
+		.app{
+			border: 1px solid gray;
+			padding: 10px;
+			background: #f1f1f1;
+			position: absolute;
+			left: 50%;
+			top: 25%;
+			transform: translate(-50%, -25%);
+			width: 500px;
+			text-align: center;
+			
+		}
+		.first{ width: 25%; }
+		.last{ width: 15%; }
+		.first, .last{
+			
+			float: left;background: #f1f1f1;
+			height: 50px;
+			line-height: 50px;
+		}
+		.middle{ width: 60%; float: left;background: #f1f1f1;height: 50px;
+			line-height: 50px;}
+
+		.first{
+			text-align: right;
+			clear: both;
+		}
+
+		.last{
+			text-align: left;
+		}
+
+		.middle{ text-align: center;}
+
+		.middle input{
+			width: 100%;
+		}
+
+		.row div{ padding: 10px; }
+		.result{
+			width: 90%;
+			height: 200px;
+			clear: both;
+			border: 1px solid black;
+			line-height: 200px;
+			font-size: 200%;
+		}
+		div{ margin: auto; }
+	</style>
+</head>
+<body>
+
+	<div class="app">
+		<h1>Color Maker</h1>
+		<div class="row" style="color:red;">
+			<div class="first">RED: 0</div>
+			<div class="middle"><input type="range" min=0 max=255 value=0 id="r"></div>
+			<div class="last">255</div>
+		</div>
+		<div class="row" style="color:green;">
+			<div class="first">GREEN: 0</div>
+			<div class="middle"><input type="range" min=0 max=255 value=0 id="g"></div>
+			<div class="last">255</div>
+		</div>
+		<div class="row" style="color:blue;">
+			<div class="first">BLUE: 0</div>
+			<div class="middle"><input type="range" min=0 max=255 value=0 id="b"></div>
+			<div class="last">255</div>
+		</div>
+		<div class="row" style="color:blue;">
+			<div class="first">ALPHA: 0.0</div>
+			<div class="middle"><input type="range" min=0.0 max=1.0 value=1.0 step=0.01 id="a"></div>
+			<div class="last">1.0</div>
+		</div>
+		<div class="result" id="res"></div>
+	</div>
+	</div>
+	<script type="text/javascript">
+		var r = document.getElementById("r");
+		var g = document.getElementById("g");
+		var b = document.getElementById("b");
+		var a = document.getElementById("a");
+		var res = document.getElementById("res");
+		var body = document.body;
+		var result = document.getElementById("result");
+		body.style.backgroundColor = "black";
+		res.style.backgroundColor = "black"
+		function changeResult(){
+			res.innerHTML = "<h1>[" + r.value + ", " + g.value + ", " + b.value +"]</h1>";
+		}
+		r.oninput = function(){
+			var color = "rgb(" + r.value + ", " + g.value + ", " + b.value + ")";
+			body.style.backgroundColor = color;
+			res.style.backgroundColor = color;
+			changeResult();
+		};
+		g.oninput = function(){
+			var color = "rgb(" + r.value + ", " + g.value + ", " + b.value + ")";
+			body.style.backgroundColor = color;
+			res.style.backgroundColor = color;
+			changeResult();
+		};
+		b.oninput = function(){
+			var color = "rgb(" + r.value + ", " + g.value + ", " + b.value + ")";
+			body.style.backgroundColor = color;
+			res.style.backgroundColor = color;
+			changeResult();
+		};
+		a.oninput = function(){
+			var color = "rgba(" + r.value + ", " + g.value + ", " + b.value + ", " + a.value + ")";
+			res.style.backgroundColor = color;
+			changeResult();
+		};
+
+
+		//ranjitfule.github.io/colormaker/
+
+
+
+	</script>
+
+</body>
+</html>
